@@ -62,7 +62,8 @@ export default function CategoryPage() {
         // Fetch all products
         const prodRes = await fetch("/api/products")
         if (!prodRes.ok) throw new Error("Failed to fetch products")
-        const allProducts = await prodRes.json()
+        const productsData = await prodRes.json()
+        const allProducts = Array.isArray(productsData) ? productsData : productsData.products || []
         // Filter products by category name
         const filtered = allProducts.filter((product: Product) => product.category?.toLowerCase() === foundCategory.name.toLowerCase())
         setProducts(filtered)

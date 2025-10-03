@@ -36,7 +36,7 @@ export default function DealsPage() {
       setLoadingProducts(true)
       fetch("/api/products")
         .then(res => res.json())
-        .then(data => setAllProducts(Array.isArray(data) ? data : []))
+        .then(data => setAllProducts(Array.isArray(data) ? data : data.products || []))
         .finally(() => setLoadingProducts(false))
     } else {
       setAllProducts([])
@@ -56,7 +56,8 @@ export default function DealsPage() {
       setLoading(true)
       const res = await fetch("/api/products")
       const data = await res.json()
-      setProducts(Array.isArray(data) ? data.filter((p: any) => p.isDeal) : [])
+      const products = Array.isArray(data) ? data : data.products || []
+      setProducts(products.filter((p: any) => p.isDeal))
       setLoading(false)
     }
     fetchDeals()

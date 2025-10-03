@@ -1,0 +1,34 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow important pages
+Allow: /products
+Allow: /category/
+Allow: /product/
+Allow: /deals
+Allow: /contact
+Allow: /faq
+Allow: /about
+Allow: /shipping
+Allow: /returns
+Allow: /warranty
+Allow: /terms
+Allow: /privacy
+Allow: /cookies
+Allow: /careers
+Allow: /blog
+Allow: /press
+Allow: /affiliates
+Allow: /compliance
+
+# Sitemap location
+Sitemap: https://safirdynamics.co.ke/sitemap.xml
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1 
